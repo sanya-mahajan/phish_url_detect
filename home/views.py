@@ -20,7 +20,7 @@ class handleUpload(APIView):
                 
                 return Response({"message": "successfully uploaded", "status": 200,"data":serializer.data})
 
-            return Response({"message": "failed to upload", "status": 400, "data": serializer.errors})
+            return Response({"message": "ser-failed", "status": 400, "data": serializer.errors})
 
          except Exception as e:
               print(e)   

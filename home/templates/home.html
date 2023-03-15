@@ -106,10 +106,10 @@ body p {
       
 
         <div class="background">
-            <center>
+            <centre>
               
               <p id='showurl'></p>
-            </center>
+            </centre>
             </div>
 
       </div>
@@ -133,11 +133,13 @@ body p {
     );
 
     function upload_file(){
-     var files=pond.getFiles()
+     var files=pond.getFiles();
+     if(!files.length){return;}
     var formdata= new FormData()
   for(var i=0;i<files.length;i++){
     formdata.append('files',files[i].file);
   }  
+  
   var url="";
 
 fetch('/handle/',{
@@ -148,7 +150,7 @@ fetch('/handle/',{
   console.log(result)
   var uid=result.data.folder
   console.log(uid)
-  url="http://127.0.0.1:8000/media/static/zip/"+uid+".zip"
+  url="http://"+window.location.host+"/media/static/zip/"+uid+".zip"
   geturl(url)
 })}
 
